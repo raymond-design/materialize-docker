@@ -50,6 +50,7 @@ services:
     ports:
       - 3030:3000
   tempapi:
+    image: raymondyan777/materialize-iot
     build: temperature_api_mock
     container_name: tempapi
     ports:
@@ -70,6 +71,7 @@ services:
      - CACHE_VIEWS=false
     depends_on: [postgres]
   raspberry-mock:
+    image: raymondyan777/materialize-iot
     build: raspberry_mock
     container_name: raspberry-mock
     depends_on: [postgres,tempapi,redpanda]
